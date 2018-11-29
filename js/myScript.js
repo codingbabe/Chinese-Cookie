@@ -1,21 +1,23 @@
 var prediction = ["Today it's up to you to create the peacefulness you long for", "A friend asks only for your time not your money", "Your high-minded principles spell success", "Change can hurt, but it leads a path to something better", "Enjoy the good luck a companion brings you", "What ever you're goal is in life, embrace it visualize it, and for it will be yours", "Your shoes will make you happy today", "A dream you have will come true", "You will become great if you believe in yourself", "Wealth awaits you very soon"];
 
-// further modification:
 // do not repeat predictions in the same session
-// for loop :
-// create an array with prediction indexes
-// while loop : 
-// substract element from prediction array when user gets a prediction >> 
-// while there are still predictions - user can click on the btn
-// when no more predictions left - make the btn inactive
 
 function anotherPrediction() {
 	console.log("clicked");
-	var x = Math.floor(Math.random() * 10);
+	var x = Math.floor(Math.random() * prediction.length);
 	console.log(x);
 	console.log (prediction[x]);
 	document.getElementById("prediction").innerHTML = prediction[x];
-	document.getElementById("btn").innerHTML = "Another one!";
+	// substract element from prediction array when user gets a prediction >> 
+	prediction.splice(x, 1); 
+	if (prediction.length >= 1) {
+		 // while there are still predictions - user can click on the btn
+		document.getElementById("btn").innerHTML = "Another one!";}
+	else {
+		// when no more predictions left - make the btn inactive
+		document.getElementById("btn").disabled=true;
+		document.getElementById("btn").innerHTML = "No more predictions";
+	}
 }
 
 function choosePrediction() {
