@@ -31,8 +31,7 @@ img.cookie {
 }
 
 .button:active, .button:focus {
-	background-color: #ffffff;
-	border: none;
+	outline: none !important;
 }
 
 p {

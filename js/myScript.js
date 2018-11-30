@@ -1,16 +1,18 @@
 var prediction = ["Today it's up to you to create the peacefulness you long for", "A friend asks only for your time not your money", "Your high-minded principles spell success", "Change can hurt, but it leads a path to something better", "Enjoy the good luck a companion brings you", "What ever you're goal is in life, embrace it visualize it, and for it will be yours", "Your shoes will make you happy today", "A dream you have will come true", "You will become great if you believe in yourself", "Wealth awaits you very soon"];
 
 // do not repeat predictions in the same session
+var autoPrediction = prediction.slice();
 
 function anotherPrediction() {
 	console.log("clicked");
-	var x = Math.floor(Math.random() * prediction.length);
+	var x = Math.floor(Math.random() * autoPrediction.length);
 	console.log(x);
-	console.log (prediction[x]);
-	document.getElementById("prediction").innerHTML = prediction[x];
+	console.log(autoPrediction[x]);
+	document.getElementById("prediction").innerHTML = autoPrediction[x];
 	// substract element from prediction array when user gets a prediction >> 
-	prediction.splice(x, 1); 
-	if (prediction.length >= 1) {
+	autoPrediction.splice(x, 1); 
+	console.log(autoPrediction.length);
+	if (autoPrediction.length >= 1) {
 		 // while there are still predictions - user can click on the btn
 		document.getElementById("btn").innerHTML = "Another one!";}
 	else {
